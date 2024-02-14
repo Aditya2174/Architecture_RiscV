@@ -1,0 +1,21 @@
+Author - Aditya Garg 
+Roll Number - CS22BTECH11002
+
+Compile the code using the command :
+g++ Lab5.cpp
+
+Execute the code using the command :
+./a.out
+
+The given input format in the assignment is strictly followed .
+
+The program takes a single input from the file "input.txt" and outputs modified code with 
+
+1--> No Forwarding And Hazard Detection Implemented 
+2--> Forwarding Implemented But No Hazard Detection Unit Present
+in "output.txt" file .
+
+Total Number of cycles are also provided for both the cases 
+
+Multiple test cases in "testcases.txt" along with their output are present for verification .
+

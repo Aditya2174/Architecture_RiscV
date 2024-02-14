@@ -1,0 +1,14 @@
+addi x20, x0, 5
+addi x21, x0, 10
+addi x10, x20, 0
+addi x11, x21, 0
+jal x1, L1
+L1: addi x2, x2, -8
+sd x20, 0(x2) 
+ld x5, 0(x10)
+ld x20, 0(x11)
+sd x5, 0(x11) 
+sd x20, 0(x10) 
+ld x20, 0(x2)
+addi x2, x2, 8
+jalr x0, x1, 36

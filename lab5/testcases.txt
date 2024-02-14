@@ -1,0 +1,100 @@
+
+
+INPUT:
+
+add x14, x12, x11
+add x15, x14, x12
+ld x13, 8(x13)
+ld x12, 0(x14)
+and x13, x15, x13
+ld x11, 4(x13)
+sd x13, 0(x15)
+
+OUTPUT:
+
+Without Forwarding And Hazard Detection 
+add x14, x12, x11
+nop
+nop
+add x15, x14, x12
+ld x13, 8(x13)
+ld x12, 0(x14)
+nop
+and x13, x15, x13
+nop
+nop
+ld x11, 4(x13)
+sd x13, 0(x15)
+Total cycles: 16
+ 
+With Forwarding But Without Hazard Detection 
+add x14, x12, x11
+add x15, x14, x12
+ld x13, 8(x13)
+ld x12, 0(x14)
+and x13, x15, x13
+ld x11, 4(x13)
+sd x13, 0(x15)
+Total cycles: 11
+
+
+INPUT:
+
+addi x11, x12, 5
+add x13, x11, x12
+addi x14, x11, 15
+add x15, x13, x12
+
+OUTPUT:
+
+Without Forwarding And Hazard Detection 
+addi x11, x12, 5
+nop
+nop
+add x13, x11, x12
+addi x14, x11, 15
+nop
+add x15, x13, x12
+Total cycles: 11
+ 
+With Forwarding But Without Hazard Detection 
+addi x11, x12, 5
+add x13, x11, x12
+addi x14, x11, 15
+add x15, x13, x12
+Total cycles: 8
+
+INPUT:
+
+add x15, x12, x11
+lw x13, 8(x15)
+lw x12, 0(x2)
+or x13, x15, x13
+sw x13, 0(x15)
+
+OUTPUT:
+
+Without Forwarding And Hazard Detection 
+add x15, x12, x11
+nop
+nop
+lw x13, 8(x15)
+lw x12, 0(x2)
+nop
+or x13, x15, x13
+nop
+nop
+sw x13, 0(x15)
+Total cycles: 14
+ 
+With Forwarding But Without Hazard Detection 
+add x15, x12, x11
+lw x13, 8(x15)
+lw x12, 0(x2)
+or x13, x15, x13
+sw x13, 0(x15)
+Total cycles: 9
+
+
+
+

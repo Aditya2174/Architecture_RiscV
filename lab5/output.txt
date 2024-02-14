@@ -1,0 +1,12 @@
+Without Forwarding And Hazard Detection 
+ld x2, 48(x3)
+nop
+nop
+sw x2, 8(x4)
+Total cycles: 8
+ 
+With Forwarding But Without Hazard Detection 
+ld x2, 48(x3)
+nop
+sw x2, 8(x4)
+Total cycles: 7

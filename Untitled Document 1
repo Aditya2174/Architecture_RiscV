@@ -1,0 +1,49 @@
+.data 
+.word 5
+.text 
+#fibonacci code attempt -- 1
+
+
+lui x3 0x10000
+addi x12 x0 1
+beq x0 x0 main
+
+fib:
+    addi sp sp -8
+    sw x1 0(sp)
+    sw x10 4(sp)
+    beq x10 x0 L2
+    beq x10 x12 L3
+    addi x10 x10 -1
+    addi x13 x10 0
+    jal x1 fib
+    addi sp sp -4
+    sw x10 0(sp)
+    addi x10 x13 1
+    addi x10 x10 -2
+    jal x1 fib
+    lw x11 0(sp)
+    add x10 x11 x10
+    lw x1 4(sp)
+    addi sp sp 12
+    jalr x0 , x1(0)
+      
+L2:
+    lw x1 0(sp)
+    lw x10 4(sp)
+    addi sp sp 8
+    add x10 x0 x0
+    jalr x0 x1(0)
+
+L3:
+    lw x1 0(sp)
+    lw x10 4(sp)
+    addi sp sp 8
+    addi x10 x0 1
+    jalr x0 x1(0)
+
+
+main:
+    lw x10 0(x3)
+    addi x11 x0 0
+    jal x1 fib

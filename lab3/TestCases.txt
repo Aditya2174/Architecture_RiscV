@@ -1,0 +1,234 @@
+This File consists of various test cases .
+Kindly copy the code from here and pase in input.txt file to check the result.
+    
+   1) 
+   INPUT:
+    Number of instructions: 14
+        00500a13        
+        00a00a93        
+        000a0513        
+        000a8593        
+        004000ef       
+        ff810113       
+        01413023        
+        00053283        
+        0005ba03        
+        0055b023        
+        01453023        
+        00013a03        
+        00810113        
+        02408067        
+
+    OUTPUT:
+    addi x20, x0, 5
+    addi x21, x0, 10
+    addi x10, x20, 0
+    addi x11, x21, 0
+    jal x1, L1
+    L1: addi x2, x2, -8
+    sd x20, 0(x2) 
+    ld x5, 0(x10)
+    ld x20, 0(x11)
+    sd x5, 0(x11) 
+    sd x20, 0(x10) 
+    ld x20, 0(x2)
+    addi x2, x2, 8
+    jalr x0, x1, 36
+
+
+    2)
+    INPUT:
+    Number of instructions: 6
+        00500a13        
+        00a00a93        
+        000a0513        
+        000a8593        
+        00150513        
+        feb54ee3   
+             
+    OUTPUT:
+    addi x20, x0, 5
+    addi x21, x0, 10
+    addi x10, x20, 0
+    addi x11, x21, 0
+    L1: addi x10, x10, 1
+    blt x10, x11, L1
+
+
+    3)
+    INPUT:
+    Number of instructions: 14
+        100001b7        
+        00500413        
+        0001a203        
+        00418193        
+        0001a283        
+        00100313        
+        000203b3        
+        0053d463        
+        000283b3        
+        00130313        
+        00418193       
+        0001a283        
+        fe8346e3       
+        000383b3      
+
+    OUTPUT:
+        lui x3, 0x10000
+        addi x8, x0, 5
+        lw x4, 0(x3)
+        addi x3, x3, 4
+        lw x5, 0(x3)
+        addi x6, x0, 1
+        add x7, x4, x0
+        L2: bge x7, x5, L1
+        add x7, x5, x0
+        L1: addi x6, x6, 1
+        addi x3, x3, 4
+        lw x5, 0(x3)
+        blt x6, x8, L2
+        add x7, x7, x0
+
+    4)
+    INPUT:
+    Number of instructions: 11
+        100000b7        
+        000001b3        
+        0000a203        
+        00408093        
+        0000a603        
+        000007b3        
+        00418863        
+        00c787b3        
+        00118193        
+        fe000ae3        
+        000787b3        
+
+    OUTPUT:
+        lui x1, 0x0
+        add x3, x0, x0
+        lw x4, 0(x1)
+        addi x1, x1, 4
+        lw x12, 0(x1)
+        add x15, x0, x0
+        L2: beq x3, x4, L1
+        add x15, x15, x12
+        addi x3, x3, 1
+        beq x0, x0, L2
+        L1: add x15, x15, x0
+
+
+    5)
+    INPUT:
+    Number of instructions: 54
+        003100b3
+        40628233
+        009473b3
+        00c5e533
+        00f746b3
+        01289833
+        015a59b3
+        418bdb33
+        064d0c93
+        0ffe7d93
+        04356493
+        7ff1c193
+        00421193
+        00335293
+        40245393
+        00012083
+        00823183
+        01031283
+        01840383
+        02056483
+        02865583
+        03074683
+        00f82023
+        01193423
+        013a1823
+        015b0c23
+        02208263
+        02419463
+        0262c663
+        0283d863
+        02a4ea63
+        02c5fc63
+        03c006ef
+        0c478767
+        10000837
+        003100b3
+        02000e63
+        40628233
+        02000a63
+        009473b3
+        02000663
+        00c5e533
+        02000263
+        00f746b3
+        00000e63
+        01289833
+        00000a63
+        015a59b3
+        00000663
+        418bdb33
+        00000263
+        80000cb7
+        07bc8c93
+        01902023
+
+    OUTPUT:
+    add x1, x2, x3
+    sub x4, x5, x6
+    and x7, x8, x9
+    or x10, x11, x12
+    xor x13, x14, x15
+    sll x16, x17, x18
+    srl x19, x20, x21
+    sra x22, x23, x24
+    addi x25, x26, 100
+    andi x27, x28, 255
+    ori x9, x10, 67
+    xori x3, x3, 2047
+    slli x3, x4, 4
+    srli x5, x6, 3
+    srai x7, x8, 2
+    lw x1, 0(x2)
+    ld x3, 8(x4)
+    lh x5, 16(x6)
+    lb x7, 24(x8)
+    lwu x9, 32(x10)
+    lhu x11, 40(x12)
+    lbu x13, 48(x14)
+    sw x15, 0(x16)
+    sd x17, 8(x18)
+    sh x19, 16(x20)
+    sb x21, 24(x22)
+    beq x1, x2, L1
+    bne x3, x4, L2
+    blt x5, x6, L3
+    bge x7, x8, L4
+    bltu x9, x10, L5
+    bgeu x11, x12, L6
+    jal x13, L7
+    jalr x14, x15, 196
+    lui x16, 0x10000
+    L1:add x1, x2, x3
+    beq x0, x0, L8
+    L2:sub x4, x5, x6
+    beq x0, x0, L8
+    L3:and x7, x8, x9
+    beq x0, x0, L8
+    L4:or x10, x11, x12
+    beq x0, x0, L8
+    L5:xor x13, x14, x15
+    beq x0, x0, L8
+    L6:sll x16, x17, x18
+    beq x0, x0, L8
+    L7:srl x19, x20, x21
+    beq x0, x0, L8
+    sra x22, x23, x24
+    beq x0, x0, L8
+    L8:lui x25, 0x80000
+    addi x25, x25, 123
+    sw x25, 0(x0)
+        
